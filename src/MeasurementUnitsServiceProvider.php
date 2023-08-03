@@ -15,8 +15,8 @@ class MeasurementUnitsServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'ilbronza');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'ilbronza');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/../routes/measurementUnits.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -31,10 +31,10 @@ class MeasurementUnitsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/measurementunits.php', 'measurementunits');
+        $this->mergeConfigFrom(__DIR__.'/../config/measurementUnits.php', 'measurementUnits');
 
         // Register the service the package provides.
-        $this->app->singleton('measurementunits', function ($app) {
+        $this->app->singleton('measurementUnits', function ($app) {
             return new MeasurementUnits;
         });
     }
