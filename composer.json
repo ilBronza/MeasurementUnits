@@ -1,0 +1,40 @@
+{
+    "name": "ilbronza/measurementunits",
+    "description": "Measurement Units package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Davide Bronzini",
+            "email": "davide_bronzini@hotmail.com",
+            "homepage": "https://sistema.srl"
+        }
+    ],
+    "homepage": "https://github.com/ilbronza/measurementunits",
+    "keywords": ["Laravel", "MeasurementUnits"],
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "IlBronza\\MeasurementUnits\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IlBronza\\MeasurementUnits\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IlBronza\\MeasurementUnits\\MeasurementUnitsServiceProvider"
+            ],
+            "aliases": {
+                "MeasurementUnits": "IlBronza\\MeasurementUnits\\Facades\\MeasurementUnits"
+            }
+        }
+    }
+}
