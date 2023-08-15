@@ -18,6 +18,10 @@ class MeasurementUnitFieldsGroupParametersFile extends FieldsGroupParametersFile
 
                 'id' => 'flat',
                 'name' => 'flat',
+
+                'base_measurement_unit' => 'flat',
+                'proportion_toward_base_measurement_unit' => 'flat',
+
                 'description' => 'flat',
 
                 'mySelfDelete' => 'links.delete'

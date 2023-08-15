@@ -4,6 +4,7 @@ namespace IlBronza\MeasurementUnits;
 
 use IlBronza\CRUD\Providers\RouterProvider\IbRouter;
 use IlBronza\CRUD\Providers\RouterProvider\RoutedObjectInterface;
+use Illuminate\Support\Facades\File;
 
 class MeasurementUnits implements RoutedObjectInterface
 {
@@ -35,6 +36,22 @@ class MeasurementUnits implements RoutedObjectInterface
                 'href' => IbRouter::route($this, 'measurementUnits.index')
             ])
         );
+    }
+
+    public function getBaseMeasurementUnitsArray() : array
+    {
+        $result = [];
+
+        foreach(File::files(__DIR__ . '/BaseMeasurementUnits') as $file)
+        {
+            $measurementUnitClass = 'IlBronza\MeasurementUnits\BaseMeasurementUnits\\' . $file->getFilenameWithoutExtension();
+
+            $measurementUnit = new $measurementUnitClass();
+
+            $result[$file->getFilenameWithoutExtension()] = $measurementUnit->getSelectDescriptionString();
+        }
+
+        return $result;
     }
 
     public function getRoutePrefix() : ? string
