@@ -58,7 +58,7 @@ class MeasurementUnitsServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/measurementunits.php' => config_path('measurementunits.php'),
+            __DIR__.'/../config/measurementUnits.php' => config_path('measurementunits.php'),
         ], 'measurementunits.config');
 
         // Publishing the views.
