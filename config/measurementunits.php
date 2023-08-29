@@ -1,6 +1,12 @@
 <?php
 
 use App\Models\ProjectSpecific\User;
+use IlBronza\MeasurementUnits\BaseMeasurementUnits\CubicCm;
+use IlBronza\MeasurementUnits\BaseMeasurementUnits\Day;
+use IlBronza\MeasurementUnits\BaseMeasurementUnits\Gram;
+use IlBronza\MeasurementUnits\BaseMeasurementUnits\Meter;
+use IlBronza\MeasurementUnits\BaseMeasurementUnits\Second;
+use IlBronza\MeasurementUnits\BaseMeasurementUnits\SquareMeter;
 use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitCrudController;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\FieldsGroups\MeasurementUnitFieldsGroupParametersFile;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\Fieldsets\MeasurementUnitCreateStoreFieldsetsParameters;
@@ -15,6 +21,15 @@ return [
     'applicableTo' => [
         User::class => 'users',
         Vehicle::class => 'vehicles'
+    ],
+
+    'helpers' => [
+        'Meter' => Meter::class,
+        'CubicCm' => CubicCm::class,
+        'Day' => Day::class,
+        'Gram' => Gram::class,
+        'Second' => Second::class,
+        'SquareMeter' => SquareMeter::class,
     ],
 
     'models' => [
