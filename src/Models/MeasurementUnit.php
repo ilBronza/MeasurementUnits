@@ -30,4 +30,43 @@ class MeasurementUnit extends MeasurementUnitPackageBaseModel
 
         return new $helperPath();
     }
+
+    public function getDeadlineValue($initialValue, $validity) : mixed
+    {
+        $measurementUnitHelper = $this->getHelper();
+
+        $deadlineValue = $measurementUnitHelper->getDeadlineValue(
+            $this->convertToBaseUnitValue($initialValue),
+            $this->convertToBaseUnitValue($validity)
+        );
+
+        return $this->getFromBaseUnitValue($deadlineValue);
+    }
+
+    public function getBeforeValue($deadlineValue, $before) : mixed
+    {
+        $measurementUnitHelper = $this->getHelper();
+
+        $deadlineValue = $measurementUnitHelper->getBeforeValue(
+            $this->convertToBaseUnitValue($deadlineValue),
+            $this->convertToBaseUnitValue($before)
+        );
+
+        return $this->getFromBaseUnitValue($deadlineValue);
+    }
+
+    public function getProportionCoefficien() : float
+    {
+        return $this->proportion_toward_base_measurement_unit;
+    }
+
+    public function convertToBaseUnitValue($value) : float
+    {
+        return $this->getProportionCoefficien() * $value;
+    }
+
+    public function getFromBaseUnitValue($value) : float
+    {
+        return $value / $this->getProportionCoefficien();
+    }
 }
