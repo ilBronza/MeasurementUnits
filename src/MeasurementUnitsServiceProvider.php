@@ -46,7 +46,7 @@ class MeasurementUnitsServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['measurementunits'];
+        return ['measurementUnits'];
     }
 
     /**
