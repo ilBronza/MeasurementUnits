@@ -2,11 +2,11 @@
 
 namespace IlBronza\MeasurementUnits\Http\Controllers\Providers\RelationshipsManagers;
 
-use IlBronza\CRUD\Providers\RelationshipsManager;
+use IlBronza\CRUD\Providers\RelationshipsManager\RelationshipsManager;
 
 class MeasurementUnitRelationManager Extends RelationshipsManager
 {
-	public function getAllRelationsParameters()
+	public  function getAllRelationsParameters() : array
 	{
 		return [
 			'show' => [
