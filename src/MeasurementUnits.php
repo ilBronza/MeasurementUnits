@@ -38,13 +38,16 @@ class MeasurementUnits implements RoutedObjectInterface
         );
     }
 
-    public function getBaseMeasurementUnitsArray() : array
+    public function getBaseMeasurementUnitHelpersArray() : array
     {
         $result = [];
 
-        foreach(File::files(__DIR__ . '/BaseMeasurementUnits') as $file)
+        foreach(File::files(__DIR__ . '/BaseMeasurementUnitHelpers') as $file)
         {
-            $measurementUnitClass = 'IlBronza\MeasurementUnits\BaseMeasurementUnits\\' . $file->getFilenameWithoutExtension();
+            if($file->getRelativePathname() == 'BaseMeasurementUnitHelper.php')
+                continue;
+
+            $measurementUnitClass = 'IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\\' . $file->getFilenameWithoutExtension();
 
             $measurementUnit = new $measurementUnitClass();
 

@@ -8,7 +8,7 @@ class MeasurementUnitEditUpdateFieldsetsParameters extends FieldsetParametersFil
 {
     public function _getFieldsetsParameters() : array
     {
-        $possibleValues = app('measurementUnits')->getBaseMeasurementUnitsArray();
+        $possibleValues = app('measurementUnits')->getBaseMeasurementUnitHelpersArray();
 
         return [
             'package' => [

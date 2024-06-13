@@ -8,7 +8,7 @@ class MeasurementUnitCreateStoreFieldsetsParameters extends FieldsetParametersFi
 {
     public function _getFieldsetsParameters() : array
     {
-        $possibleValues = app('measurementUnits')->getBaseMeasurementUnitsArray();
+        $possibleValues = app('measurementUnits')->getBaseMeasurementUnitHelpersArray();
 
         return [
             'base' => [

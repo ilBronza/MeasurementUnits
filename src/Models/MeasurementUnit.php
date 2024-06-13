@@ -3,13 +3,16 @@
 namespace IlBronza\MeasurementUnits\Models;
 
 use IlBronza\CRUD\Traits\CRUDSluggableTrait;
-use IlBronza\MeasurementUnits\BaseMeasurementUnit;
+use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\BaseMeasurementUnitHelper;
+use IlBronza\MeasurementUnits\Helpers\BaseMeasurementUnitCreatorHelper;
 use IlBronza\MeasurementUnits\Models\MeasurementUnitPackageBaseModel;
 use Illuminate\Support\Str;
 
 class MeasurementUnit extends MeasurementUnitPackageBaseModel
 {
     use CRUDSluggableTrait;
+
+    public BaseMeasurementUnitHelper $helper;
 
     static $deletingRelationships = [
     ];
@@ -19,40 +22,19 @@ class MeasurementUnit extends MeasurementUnitPackageBaseModel
         return "id";
     }
 
-    public function getBaseMeasurementUnit() : string
+    public function getBaseMeasurementUnitHelper() : string
     {
         return $this->base_measurement_unit;
     }
 
-    public function getHelper() : BaseMeasurementUnit
+    public function getHelper() : BaseMeasurementUnitHelper
     {
-        $helperPath = config('measurementUnits.helpers.' . $this->getBaseMeasurementUnit());
+        if(isset($this->helper))
+            return $this->helper;
 
-        return new $helperPath();
-    }
+        $this->helper = BaseMeasurementUnitCreatorHelper::createHelperByMeasurementUnit($this);
 
-    public function getDeadlineValue($initialValue, $validity) : mixed
-    {
-        $measurementUnitHelper = $this->getHelper();
-
-        $deadlineValue = $measurementUnitHelper->getDeadlineValue(
-            $this->convertToBaseUnitValue($initialValue),
-            $this->convertToBaseUnitValue($validity)
-        );
-
-        return $this->getFromBaseUnitValue($deadlineValue);
-    }
-
-    public function getBeforeValue($deadlineValue, $before) : mixed
-    {
-        $measurementUnitHelper = $this->getHelper();
-
-        $deadlineValue = $measurementUnitHelper->getBeforeValue(
-            $this->convertToBaseUnitValue($deadlineValue),
-            $this->convertToBaseUnitValue($before)
-        );
-
-        return $this->getFromBaseUnitValue($deadlineValue);
+        return $this->helper;
     }
 
     public function getProportionCoefficien() : float
@@ -60,13 +42,19 @@ class MeasurementUnit extends MeasurementUnitPackageBaseModel
         return $this->proportion_toward_base_measurement_unit;
     }
 
-    public function convertToBaseUnitValue($value) : float
+    public function convertToBaseUnitValue($value) : mixed
     {
+        if($this->getProportionCoefficien() == 1)
+            return $value;
+
         return $this->getProportionCoefficien() * $value;
     }
 
-    public function getFromBaseUnitValue($value) : float
+    public function getFromBaseUnitValue($value) : mixed
     {
+        if($this->getProportionCoefficien() == 1)
+            return $value;
+
         return $value / $this->getProportionCoefficien();
     }
 }
