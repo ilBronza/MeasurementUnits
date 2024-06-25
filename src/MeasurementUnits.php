@@ -22,7 +22,7 @@ class MeasurementUnits implements RoutedObjectInterface
 
         $measurementUnitsManagerButton = $menu->createButton([
             'name' => 'measurementUnitsManager',
-            'icon' => 'user-gear',
+            'icon' => 'scale-unbalanced-flip',
             'text' => 'measurementUnits::measurementUnits.list',
         ]);
 
@@ -31,7 +31,7 @@ class MeasurementUnits implements RoutedObjectInterface
         $measurementUnitsManagerButton->addChild(
             $menu->createButton([
                 'name' => 'measurementUnits.list',
-                'icon' => 'truck-moving',
+                'icon' => 'list',
                 'text' => 'measurementUnits::measurementUnits.list',
                 'href' => IbRouter::route($this, 'measurementUnits.index')
             ])
