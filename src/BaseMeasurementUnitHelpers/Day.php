@@ -3,7 +3,7 @@
 namespace IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers;
 
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\BaseMeasurementUnitHelper;
-use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\traits\MeasurementUnitDatesMethodsTrait;
+use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Traits\MeasurementUnitDatesMethodsTrait;
 
 class Day extends BaseMeasurementUnitHelper
 {

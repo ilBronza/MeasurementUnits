@@ -1,6 +1,6 @@
 <?php
 
-namespace IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\traits;
+namespace IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Traits;
 
 trait MeasurementUnitFlatMethodsTrait
 {

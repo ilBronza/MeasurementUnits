@@ -2,7 +2,7 @@
 
 namespace IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers;
 
-use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\traits\MeasurementUnitDatesMethodsTrait;
+use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Traits\MeasurementUnitDatesMethodsTrait;
 
 class Year extends BaseMeasurementUnitHelper
 {
