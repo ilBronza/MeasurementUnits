@@ -21,6 +21,8 @@ abstract class BaseMeasurementUnitHelper
     abstract public function remove($source, $amount) : mixed;
     abstract protected function validateInputs($source, $amount) : \Exception|true;
 
+	abstract public function calculateDifference($start, $end) : mixed;
+
     public function setMeasurementUnitModel(MeasurementUnit $measurementUnit) : static
     {
         $this->measurementUnit = $measurementUnit;

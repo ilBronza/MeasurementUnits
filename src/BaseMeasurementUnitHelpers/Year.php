@@ -44,4 +44,12 @@ class Year extends BaseMeasurementUnitHelper
 				$this->getYears($amount)
 			);
 	}
+
+	public function calculateDifference($start, $end) : mixed
+	{
+		$years = $start->diffInYears($end);
+		$days = $start->copy()->addYears($years)->diffInDays($end);
+
+		return $years + $days / 365;
+	}
 }

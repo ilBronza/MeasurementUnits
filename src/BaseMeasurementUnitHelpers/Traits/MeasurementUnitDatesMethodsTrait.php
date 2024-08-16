@@ -5,6 +5,8 @@ namespace IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Traits;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
+use function json_encode;
+
 trait MeasurementUnitDatesMethodsTrait
 {
 	public function parseMeasurementUnitOutputValue(mixed $value) : mixed
@@ -15,7 +17,7 @@ trait MeasurementUnitDatesMethodsTrait
 		);
 
 		if(! $validator->passes())
-			throw new \Exception('Value is not a valid date');
+			throw new \Exception('Value is not a valid date: ' . json_encode($value), config('app.ibValidationError', 9901));
 
 		return Carbon::parse($value);
 	}
