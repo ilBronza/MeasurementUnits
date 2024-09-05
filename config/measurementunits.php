@@ -3,6 +3,7 @@
 use App\Models\ProjectSpecific\User;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\CubicCm;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Day;
+use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Forfait;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Gram;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Meter;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Second;
@@ -25,6 +26,7 @@ return [
     ],
 
     'helpers' => [
+	    'Forfait' => Forfait::class,
         'Meter' => Meter::class,
         'CubicCm' => CubicCm::class,
         'Day' => Day::class,

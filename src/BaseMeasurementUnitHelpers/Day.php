@@ -28,4 +28,9 @@ class Day extends BaseMeasurementUnitHelper
 				floor($amount)
 			);
 	}
+
+	public function calculateDifference($start, $end) : mixed
+	{
+		return  $start->diffInDays($end);
+	}
 }
