@@ -8,29 +8,28 @@ use Illuminate\Support\Str;
 
 class MeasurementUnitPackageBaseModel extends BaseModel
 {
-    use CRUDUseUuidTrait;
+	use CRUDUseUuidTrait;
 
-    protected $keyType = 'string';
+	protected $keyType = 'string';
 
-    public function getRouteBaseNamePrefix() : ? string
-    {
-        return config('measurementUnits.routePrefix');
-    }
+	public function getRouteBaseNamePrefix() : ?string
+	{
+		return config('measurementUnits.routePrefix');
+	}
 
-    static function getModelConfigPrefix()
-    {
-        return static::$modelConfigPrefix ?? Str::camel(class_basename(static::class));
-    }
+	static function getModelConfigPrefix()
+	{
+		return static::$modelConfigPrefix ?? Str::camel(class_basename(static::class));
+	}
 
-    static function getProjectClassName()
-    {
-        return config('measurementUnits.models.' . static::getModelConfigPrefix() . '.class');
-    }
+	static function getProjectClassName()
+	{
+		return config('measurementUnits.models.' . static::getModelConfigPrefix() . '.class');
+	}
 
-    public function getTable()
-    {
-        return config("measurementUnits.models.{$this->getModelConfigPrefix()}.table");
-    }
+	public function getTable() : string
+	{
+		return config("measurementUnits.models.{$this->getModelConfigPrefix()}.table");
+	}
 
-    
 }
