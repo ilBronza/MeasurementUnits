@@ -8,4 +8,10 @@ use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Traits\MeasurementUnitF
 class SquareMeter extends BaseMeasurementUnitHelper
 {
 	use MeasurementUnitFlatMethodsTrait;
+
+	public function calculateDifference($start, $end) : mixed
+	{
+		return $end - $start;
+	}
+
 }

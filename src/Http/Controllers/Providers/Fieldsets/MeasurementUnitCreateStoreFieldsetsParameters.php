@@ -12,6 +12,7 @@ class MeasurementUnitCreateStoreFieldsetsParameters extends FieldsetParametersFi
 
         return [
             'base' => [
+                'translationPrefix' => 'measurementUnits::fields',
                 'fields' => [
                     'id' => ['text' => 'string|required|max:16'],
                     'name' => ['text' => 'string|required|max:255'],
@@ -20,6 +21,7 @@ class MeasurementUnitCreateStoreFieldsetsParameters extends FieldsetParametersFi
                 'width' => ["1-3@l", '1-2@m']
             ],
             'refe' => [
+                'translationPrefix' => 'measurementUnits::fields',
                 'fields' => [
                     'base_measurement_unit' => [
                         'type' => 'select',
