@@ -3,12 +3,15 @@
 namespace IlBronza\MeasurementUnits\Models;
 
 use IlBronza\CRUD\Models\BaseModel;
+use IlBronza\CRUD\Models\PackagedBaseModel;
 use IlBronza\CRUD\Traits\Model\CRUDUseUuidTrait;
 use Illuminate\Support\Str;
 
-class MeasurementUnitPackageBaseModel extends BaseModel
+class MeasurementUnitPackageBaseModel extends PackagedBaseModel
 {
 	use CRUDUseUuidTrait;
+
+	static $packageConfigPrefix = 'measurementUnits';
 
 	protected $keyType = 'string';
 
@@ -20,11 +23,6 @@ class MeasurementUnitPackageBaseModel extends BaseModel
 	static function getModelConfigPrefix()
 	{
 		return static::$modelConfigPrefix ?? Str::camel(class_basename(static::class));
-	}
-
-	static function getProjectClassName()
-	{
-		return config('measurementUnits.models.' . static::getModelConfigPrefix() . '.class');
 	}
 
 	public function getTable() : string

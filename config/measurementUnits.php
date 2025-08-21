@@ -20,6 +20,12 @@ use IlBronza\Vehicles\Models\Vehicle;
 return [
     'routePrefix' => 'measurementUnits.',
 
+	'datatableFieldWidths' => [
+		'measurementUnit' => [
+			'datatableFieldMeasurementUnit' => '2em'
+		]
+	],
+
     'applicableTo' => [
         User::class => 'users',
         Vehicle::class => 'vehicles'
