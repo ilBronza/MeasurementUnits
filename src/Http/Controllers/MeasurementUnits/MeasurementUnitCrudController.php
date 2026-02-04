@@ -48,7 +48,7 @@ class MeasurementUnitCrudController extends CrudMeasurementUnitCrudController
 
     public function getIndexFieldsArray()
     {
-        return config($this->getBaseConfigName() . ".models.$this->configModelClassName.fieldsGroupsFiles.index")::getFieldsGroup();
+        return config($this->getBaseConfigName() . ".models.$this->configModelClassName.fieldsGroupsFiles.index")::getTracedFieldsGroup();
     }
 
     public function getIndexElements()
