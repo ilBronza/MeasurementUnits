@@ -2,6 +2,7 @@
 
 namespace IlBronza\MeasurementUnits;
 
+use IlBronza\MeasurementUnits\Http\Middleware\MeasurementUnitsMiddlewareRolesPermissions;
 use Illuminate\Support\ServiceProvider;
 
 class MeasurementUnitsServiceProvider extends ServiceProvider
@@ -17,6 +18,8 @@ class MeasurementUnitsServiceProvider extends ServiceProvider
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'ilbronza');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/../routes/measurementUnits.php');
+
+        $this->app['router']->aliasMiddleware('measurementunits.roles', MeasurementUnitsMiddlewareRolesPermissions::class);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {

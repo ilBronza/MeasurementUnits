@@ -3,7 +3,7 @@
 use IlBronza\MeasurementUnits\MeasurementUnits;
 
 Route::group([
-	'middleware' => ['web', 'auth'],
+	'middleware' => ['web', 'auth', 'measurementunits.roles'],
 	'prefix' => 'measurement-units-management',
 	'as' => config('measurementunits.routePrefix')
 	],

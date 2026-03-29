@@ -20,6 +20,15 @@ use IlBronza\Vehicles\Models\Vehicle;
 return [
     'routePrefix' => 'measurementUnits.',
 
+    'defaultRoles' => [
+        'superadmin',
+        'administrator',
+        'measurementunits',
+    ],
+
+    'routeRoles' => [
+    ],
+
 	'datatableFieldWidths' => [
 		'measurementUnit' => [
 			'datatableFieldMeasurementUnit' => '2em'
