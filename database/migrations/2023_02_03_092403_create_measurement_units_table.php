@@ -13,7 +13,7 @@ class CreateMeasurementUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('measurementUnits.models.measurementUnit.table'), function (Blueprint $table) {
+        Schema::create(config('measurementunits.models.measurementUnit.table'), function (Blueprint $table) {
             $table->string('id', 16)->primary();
 
             $table->string('name');
@@ -32,6 +32,6 @@ class CreateMeasurementUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('measurementUnits.models.measurementUnit.table'));
+        Schema::dropIfExists(config('measurementunits.models.measurementUnit.table'));
     }
 }

@@ -13,7 +13,7 @@ class AddProportionFieldsToMeasurementUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::table(config('measurementUnits.models.measurementUnit.table'), function (Blueprint $table) {
+        Schema::table(config('measurementunits.models.measurementUnit.table'), function (Blueprint $table) {
             $table->string('base_measurement_unit')->nullable();
             $table->decimal('proportion_toward_base_measurement_unit')->nullable();
             //

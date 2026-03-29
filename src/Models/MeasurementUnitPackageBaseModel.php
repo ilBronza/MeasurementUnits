@@ -11,13 +11,13 @@ class MeasurementUnitPackageBaseModel extends PackagedBaseModel
 {
 	use CRUDUseUuidTrait;
 
-	static $packageConfigPrefix = 'measurementUnits';
+	static $packageConfigPrefix = 'measurementunits';
 
 	protected $keyType = 'string';
 
 	public function getRouteBaseNamePrefix() : ?string
 	{
-		return config('measurementUnits.routePrefix');
+		return config('measurementunits.routePrefix');
 	}
 
 	static function getModelConfigPrefix()
@@ -27,7 +27,7 @@ class MeasurementUnitPackageBaseModel extends PackagedBaseModel
 
 	public function getTable() : string
 	{
-		return config("measurementUnits.models.{$this->getModelConfigPrefix()}.table");
+		return config('measurementunits.models.' . $this->getModelConfigPrefix() . '.table');
 	}
 
 }

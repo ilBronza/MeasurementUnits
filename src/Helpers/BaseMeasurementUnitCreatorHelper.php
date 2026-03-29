@@ -9,9 +9,10 @@ class BaseMeasurementUnitCreatorHelper
 {
     static function createHelperByMeasurementUnit(MeasurementUnit $measurementUnit) : BaseMeasurementUnitHelper
     {
-        $helperPath = config('measurementUnits.helpers.' . $measurementUnit->getBaseMeasurementUnitHelper());
+        $helperPath = config('measurementunits.helpers.' . $measurementUnit->getBaseMeasurementUnitHelper());
 
         $helper = new $helperPath();
+
         $helper->setMeasurementUnitModel($measurementUnit);
 
         return $helper;

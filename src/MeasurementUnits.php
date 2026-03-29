@@ -59,18 +59,18 @@ class MeasurementUnits implements RoutedObjectInterface
 
     public function getRoutePrefix() : ? string
     {
-        return config('measurementUnits.routePrefix');
+        return config('measurementunits.routePrefix');
     }
 
     static function getController(string $target, string $controllerPrefix) : string
     {
         try
         {
-            return config("measurementUnits.models.{$target}.controllers.{$controllerPrefix}");
+            return config("measurementunits.models.{$target}.controllers.{$controllerPrefix}");
         }
         catch(\Throwable $e)
         {
-            dd([$e->getMessage(), 'dichiara ' . "measurementUnits.models.{$target}.controllers.{$controllerPrefix}"]);
+            dd([$e->getMessage(), 'dichiara ' . "measurementunits.models.{$target}.controllers.{$controllerPrefix}"]);
         }
     }
 

@@ -31,7 +31,7 @@ class MeasurementUnitsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/measurementUnits.php', 'measurementUnits');
+        $this->mergeConfigFrom(__DIR__.'/../config/measurementunits.php', 'measurementunits');
 
         // Register the service the package provides.
         $this->app->singleton('measurementUnits', function ($app) {
@@ -58,8 +58,8 @@ class MeasurementUnitsServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/measurementUnits.php' => config_path('measurementUnits.php'),
-        ], 'measurementUnits.config');
+            __DIR__.'/../config/measurementunits.php' => config_path('measurementunits.php'),
+        ], 'measurementunits.config');
 
         // Publishing the views.
         /*$this->publishes([
