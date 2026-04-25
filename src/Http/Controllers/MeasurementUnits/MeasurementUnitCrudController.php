@@ -10,6 +10,7 @@ use IlBronza\CRUD\Traits\CRUDPlainIndexTrait;
 use IlBronza\CRUD\Traits\CRUDRelationshipTrait;
 use IlBronza\CRUD\Traits\CRUDShowTrait;
 use IlBronza\MeasurementUnits\Http\Controllers\CrudMeasurementUnitCrudController;
+use IlBronza\MeasurementUnits\Models\MeasurementUnit;
 use Illuminate\Http\Request;
 
 class MeasurementUnitCrudController extends CrudMeasurementUnitCrudController
@@ -23,6 +24,8 @@ class MeasurementUnitCrudController extends CrudMeasurementUnitCrudController
 
     use CRUDRelationshipTrait;
 
+    public $modelClass = MeasurementUnit::class;
+
     public $configModelClassName = 'measurementUnit';
 
 	public $allowedMethods = [
@@ -32,7 +35,6 @@ class MeasurementUnitCrudController extends CrudMeasurementUnitCrudController
         'edit',
         'update',
         'show',
-        'destroy'
 	];
 
     public function getGenericParametersFile() : ? string
