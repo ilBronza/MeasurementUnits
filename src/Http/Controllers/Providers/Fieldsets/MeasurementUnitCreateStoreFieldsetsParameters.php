@@ -14,7 +14,6 @@ class MeasurementUnitCreateStoreFieldsetsParameters extends FieldsetParametersFi
             'base' => [
                 'translationPrefix' => 'measurementUnits::fields',
                 'fields' => [
-                    'id' => ['text' => 'string|required|max:16'],
                     'name' => ['text' => 'string|required|max:255'],
                     'description' => ['text' => 'string|nullable|max:255'],
                 ],

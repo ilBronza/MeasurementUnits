@@ -1,6 +1,10 @@
 <?php
 
-
 return [
-	'list' => 'Unità di misura'
+    'measurementUnits' => [
+        'list' => 'Unità di misura',
+        'titles' => [
+            'show' => 'Unità di misura: :element',
+        ],
+    ],
 ];

@@ -12,6 +12,7 @@ class MeasurementUnitEditUpdateFieldsetsParameters extends FieldsetParametersFil
 
         return [
             'package' => [
+                'translationPrefix' => 'measurementUnits::fields',
                 'fields' => [
                     'name' => ['text' => 'string|required'],
                     'description' => ['text' => 'string|nullable|max:255'],
@@ -19,6 +20,7 @@ class MeasurementUnitEditUpdateFieldsetsParameters extends FieldsetParametersFil
                 'width' => ["1-3@l", '1-2@m']
             ],
             'refe' => [
+                'translationPrefix' => 'measurementUnits::fields',
                 'fields' => [
                     'base_measurement_unit' => [
                         'type' => 'select',

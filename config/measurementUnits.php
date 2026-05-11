@@ -9,7 +9,11 @@ use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Meter;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Second;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\SquareMeter;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Year;
-use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitCrudController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitCreateStoreController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitDestroyController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitEditUpdateController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitIndexController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitShowController;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\FieldsGroups\MeasurementUnitFieldsGroupParametersFile;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\Fieldsets\MeasurementUnitCreateStoreFieldsetsParameters;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\Fieldsets\MeasurementUnitEditUpdateFieldsetsParameters;
@@ -66,13 +70,13 @@ return [
                 'edit' => MeasurementUnitEditUpdateFieldsetsParameters::class
             ],
             'controllers' => [
-                'index' => MeasurementUnitCrudController::class,
-                'create' => MeasurementUnitCrudController::class,
-                'store' => MeasurementUnitCrudController::class,
-                'show' => MeasurementUnitCrudController::class,
-                'edit' => MeasurementUnitCrudController::class,
-                'update' => MeasurementUnitCrudController::class,
-                'destroy' => MeasurementUnitCrudController::class,
+                'index' => MeasurementUnitIndexController::class,
+                'create' => MeasurementUnitCreateStoreController::class,
+                'store' => MeasurementUnitCreateStoreController::class,
+                'show' => MeasurementUnitShowController::class,
+                'edit' => MeasurementUnitEditUpdateController::class,
+                'update' => MeasurementUnitEditUpdateController::class,
+                'destroy' => MeasurementUnitDestroyController::class,
             ]
         ]
     ]
