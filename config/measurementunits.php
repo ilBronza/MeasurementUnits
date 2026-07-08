@@ -9,11 +9,13 @@ use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Meter;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Second;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\SquareMeter;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Year;
-use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitCreateStoreController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitCreateController;
 use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitDestroyController;
-use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitEditUpdateController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitEditController;
 use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitIndexController;
 use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitShowController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitStoreController;
+use IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits\MeasurementUnitUpdateController;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\FieldsGroups\MeasurementUnitFieldsGroupParametersFile;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\Fieldsets\MeasurementUnitCreateStoreFieldsetsParameters;
 use IlBronza\MeasurementUnits\Http\Controllers\Providers\Fieldsets\MeasurementUnitEditUpdateFieldsetsParameters;
@@ -67,15 +69,18 @@ return [
             ],
             'parametersFiles' => [
                 'create' => MeasurementUnitCreateStoreFieldsetsParameters::class,
-                'edit' => MeasurementUnitEditUpdateFieldsetsParameters::class
+                'store' => MeasurementUnitCreateStoreFieldsetsParameters::class,
+                'show' => MeasurementUnitEditUpdateFieldsetsParameters::class,
+                'edit' => MeasurementUnitEditUpdateFieldsetsParameters::class,
+                'update' => MeasurementUnitEditUpdateFieldsetsParameters::class
             ],
             'controllers' => [
                 'index' => MeasurementUnitIndexController::class,
-                'create' => MeasurementUnitCreateStoreController::class,
-                'store' => MeasurementUnitCreateStoreController::class,
+                'create' => MeasurementUnitCreateController::class,
+                'store' => MeasurementUnitStoreController::class,
                 'show' => MeasurementUnitShowController::class,
-                'edit' => MeasurementUnitEditUpdateController::class,
-                'update' => MeasurementUnitEditUpdateController::class,
+                'edit' => MeasurementUnitEditController::class,
+                'update' => MeasurementUnitUpdateController::class,
                 'destroy' => MeasurementUnitDestroyController::class,
             ]
         ]

@@ -16,6 +16,12 @@ class MeasurementUnitEditUpdateController extends MeasurementUnitCRUD
         return config('measurementunits.models.measurementUnit.parametersFiles.edit');
     }
 
+    public function getUpdateParametersFile() : ? string
+    {
+        return config('measurementunits.models.measurementUnit.parametersFiles.update')
+            ?? $this->getEditParametersFile();
+    }
+
     public function edit(string $measurementUnit)
     {
         $measurementUnit = $this->findModel($measurementUnit);

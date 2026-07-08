@@ -14,7 +14,7 @@ class MeasurementUnitShowController extends MeasurementUnitCRUD
 
     public function getGenericParametersFile() : ? string
     {
-        return config('measurementunits.models.measurementUnit.parametersFiles.create');
+        return config('measurementunits.models.measurementUnit.parametersFiles.show');
     }
 
     public function getRelationshipsManagerClass()

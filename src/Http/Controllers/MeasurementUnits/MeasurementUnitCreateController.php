@@ -5,21 +5,15 @@ namespace IlBronza\MeasurementUnits\Http\Controllers\MeasurementUnits;
 use IlBronza\CRUD\Traits\CRUDCreateStoreTrait;
 use IlBronza\CRUD\Traits\CRUDRelationshipTrait;
 
-class MeasurementUnitCreateStoreController extends MeasurementUnitCRUD
+class MeasurementUnitCreateController extends MeasurementUnitCRUD
 {
     use CRUDCreateStoreTrait;
     use CRUDRelationshipTrait;
 
-    public $allowedMethods = ['create', 'store'];
+    public $allowedMethods = ['create'];
 
     public function getCreateParametersFile() : ? string
     {
         return config('measurementunits.models.measurementUnit.parametersFiles.create');
-    }
-
-    public function getStoreParametersFile() : ? string
-    {
-        return config('measurementunits.models.measurementUnit.parametersFiles.store')
-            ?? $this->getCreateParametersFile();
     }
 }

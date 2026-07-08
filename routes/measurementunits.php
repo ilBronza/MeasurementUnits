@@ -16,7 +16,7 @@ Route::group(['prefix' => 'measurement-units'], function()
 	Route::post('', [MeasurementUnits::getController('measurementUnit', 'store'), 'store'])->name('measurementUnits.store');
 	Route::get('{measurementUnit}', [MeasurementUnits::getController('measurementUnit', 'show'), 'show'])->name('measurementUnits.show');
 	Route::get('{measurementUnit}/edit', [MeasurementUnits::getController('measurementUnit', 'edit'), 'edit'])->name('measurementUnits.edit');
-	Route::put('{measurementUnit}', [MeasurementUnits::getController('measurementUnit', 'edit'), 'update'])->name('measurementUnits.update');
+	Route::put('{measurementUnit}', [MeasurementUnits::getController('measurementUnit', 'update'), 'update'])->name('measurementUnits.update');
 	Route::delete('{measurementUnit}/delete', [MeasurementUnits::getController('measurementUnit', 'destroy'), 'destroy'])->name('measurementUnits.destroy');	
 });
 
