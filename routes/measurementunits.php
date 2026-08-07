@@ -5,7 +5,8 @@ use IlBronza\MeasurementUnits\MeasurementUnits;
 Route::group([
 	'middleware' => ['web', 'auth', 'measurementunits.roles'],
 	'prefix' => 'measurement-units-management',
-	'as' => config('measurementunits.routePrefix')
+	'as' => config('measurementunits.routePrefix'),
+	'routeTranslationPrefix' => MeasurementUnits::getRouteTranslationPrefix(),
 	],
 	function()
 	{

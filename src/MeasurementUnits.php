@@ -4,10 +4,23 @@ namespace IlBronza\MeasurementUnits;
 
 use IlBronza\CRUD\Providers\RouterProvider\IbRouter;
 use IlBronza\CRUD\Providers\RouterProvider\RoutedObjectInterface;
+use IlBronza\CRUD\Traits\IlBronzaPackages\IlBronzaPackagesTrait;
 use Illuminate\Support\Facades\File;
 
 class MeasurementUnits implements RoutedObjectInterface
 {
+	use IlBronzaPackagesTrait;
+
+	static $packageConfigPrefix = 'measurementunits';
+
+	/**
+	 * Translations are registered as measurementUnits (camelCase), config key is measurementunits.
+	 */
+	static function getTranslationNamespace() : string
+	{
+		return 'measurementUnits';
+	}
+
     public function manageMenuButtons()
     {
         if(! $menu = app('menu'))
@@ -55,23 +68,6 @@ class MeasurementUnits implements RoutedObjectInterface
         }
 
         return $result;
-    }
-
-    public function getRoutePrefix() : ? string
-    {
-        return config('measurementunits.routePrefix');
-    }
-
-    static function getController(string $target, string $controllerPrefix) : string
-    {
-        try
-        {
-            return config("measurementunits.models.{$target}.controllers.{$controllerPrefix}");
-        }
-        catch(\Throwable $e)
-        {
-            dd([$e->getMessage(), 'dichiara ' . "measurementunits.models.{$target}.controllers.{$controllerPrefix}"]);
-        }
     }
 
 }
