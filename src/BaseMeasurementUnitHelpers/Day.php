@@ -31,6 +31,6 @@ class Day extends BaseMeasurementUnitHelper
 
 	public function calculateDifference($start, $end) : mixed
 	{
-		return  $start->diffInDays($end);
+		return $start->diffInDays($end, false);
 	}
 }

@@ -52,6 +52,14 @@ class YearTest extends TestCase
 		$this->assertEquals(3, $this->helper()->calculateDifference($inizio, $fine));
 	}
 
+	public function testCalculateDifferenceNegativaQuandoLaFinePrecedeLInizio()
+	{
+		$inizio = Carbon::parse('2027-02-23');
+		$fine = Carbon::parse('2026-08-19');
+
+		$this->assertEqualsWithDelta(-188 / 365, $this->helper()->calculateDifference($inizio, $fine), 0.001);
+	}
+
 	// il metodo dichiara di calcolare anni interi + resto in giorni/365:
 	// 2020-01-01 -> 2021-07-01 sono 1 anno e 182 giorni, cioè 1.4986
 	public function testCalculateDifferenceRestituisceIlRestoInFrazioneDiAnno()

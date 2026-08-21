@@ -38,18 +38,22 @@ class Year extends BaseMeasurementUnitHelper
 		$this->validateInputs($value, $amount);
 
 		return $value->copy()
-			->subDays(
-				$this->getDays($amount)
-			)->subYears(
+			->subYears(
 				$this->getYears($amount)
+			)->subDays(
+				$this->getDays($amount)
 			);
 	}
 
 	public function calculateDifference($start, $end) : mixed
 	{
-		$years = $start->diffInYears($end);
-		$days = $start->copy()->addYears($years)->diffInDays($end);
+		$endPrecedesStart = $end->lt($start);
+		$earlier = $endPrecedesStart ? $end : $start;
+		$later = $endPrecedesStart ? $start : $end;
+		$years = $earlier->diff($later)->y;
+		$days = $earlier->copy()->addYears($years)->diffInDays($later, true);
+		$difference = $years + $days / 365;
 
-		return $years + $days / 365;
+		return $endPrecedesStart ? -$difference : $difference;
 	}
 }
