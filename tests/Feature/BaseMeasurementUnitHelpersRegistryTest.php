@@ -3,8 +3,11 @@
 namespace IlBronza\MeasurementUnits\Tests\Feature;
 
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\BaseMeasurementUnitHelper;
+use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Day;
 use IlBronza\MeasurementUnits\BaseMeasurementUnitHelpers\Gram;
+use IlBronza\MeasurementUnits\Helpers\BaseMeasurementUnitCreatorHelper;
 use IlBronza\MeasurementUnits\MeasurementUnits;
+use IlBronza\MeasurementUnits\Models\MeasurementUnit;
 use IlBronza\MeasurementUnits\Tests\TestCase;
 
 class BaseMeasurementUnitHelpersRegistryTest extends TestCase
@@ -53,6 +56,17 @@ class BaseMeasurementUnitHelpersRegistryTest extends TestCase
 	{
 		foreach(config('measurementunits.helpers') as $nome => $classe)
 			$this->assertTrue(class_exists($classe), $nome . ' punta a una classe inesistente: ' . $classe);
+	}
+
+	public function testDayHelperEVieneCreatoTramiteCreator()
+	{
+		$measurementUnit = new MeasurementUnit();
+		$measurementUnit->base_measurement_unit = 'Day';
+
+		$helper = BaseMeasurementUnitCreatorHelper::createHelperByMeasurementUnit($measurementUnit);
+
+		$this->assertInstanceOf(Day::class, $helper);
+		$this->assertSame($measurementUnit, $helper->measurementUnit);
 	}
 
 	public function testLElencoPerLaSelectContieneTuttiGliHelper()
