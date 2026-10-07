@@ -10,4 +10,8 @@ return [
 		'update' => 'Aggiorna elemento',
 		'destroy' => 'Elimina elemento',
 	],
+    'measurementUnits.measurementUnits.index' => 'Unità di misura',
+    'measurementUnits.measurementUnits.create' => 'Crea unità di misura',
+    'measurementUnits.measurementUnits.show' => 'Dettagli: unità di misura',
+    'measurementUnits.measurementUnits.edit' => 'Modifica unità di misura',
 ];
